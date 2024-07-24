@@ -1,0 +1,34 @@
+body {
+    background-color: #EFEFEF;
+    color: #000000;
+    text-align: center;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #CCB3DB;
+    overflow: auto;
+}
+
+.navbar a {
+    float: left;
+    text-align: center;
+    padding: 12px;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.navbar a:hover {
+    background-color: #B590CB;
+}
+
+.navbar a.active {
+    background-color: #C2DBB3;
+}
+
+.navbar a.active:hover {
+    background-color: #A6CB90;
+}
