@@ -19,14 +19,12 @@ for (b = 0; b < close.length; b++) {
 }
 
 // Add check
-const list = document.getElementById("groceryList");
-list.addEventListener('click', handleClick, false);
-
-function handleClick(e) {
-  if (e.target.matches('li')) {
-    e.target.classList.toggle('checked');
+const list = document.querySelector('ul')
+list.addEventListener('click', event => {
+  if (String(event.target.className).includes("listItem")) {
+    event.target.classList.toggle('checked');
   }
-}
+});
 
 // AddButton
 function newElement() {
@@ -37,7 +35,8 @@ function newElement() {
   if (inputValue === '') {
     alert("Enter item name");
   } else {
-    document.getElementById("groceryList").appendChild(li);
+    let listItem = document.getElementById("groceryList").appendChild(li);
+    listItem.classList.add("listItem")
   }
   document.getElementById("listInput").value = "";
 

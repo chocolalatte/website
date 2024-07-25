@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/list.css">
-    <script src="../js/list.js"></script>
     <title>List</title>
 </head>
 <body>
@@ -15,7 +14,7 @@
     </div>
 
     <div id="inputDiv" class="header">
-        <h1>Grocery List</h1>
+        <h1 id="header">Grocery List</h1>
         <input type="text" id="listInput" placeholder="Item...">
         <span onclick="newElement()" class="addItem">Add</span>
     </div>
@@ -24,5 +23,6 @@
         <li>blueberry</li>
         <li class="checked">blackberry</li>
     </ul>
+    <script src="../js/list.js"></script>
 </body>
 </html>
