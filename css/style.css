@@ -1,6 +1,13 @@
+:root {
+    --colorprimary: white;
+    --colorsecondary: black;
+    --coloraccent: #CCB3DB;
+    --coloraccent2: #C2DBB3;
+}
+
 body {
-    background-color: #EFEFEF;
-    color: #000000;
+    background-color: var(--colorprimary);
+    color: var(--colorsecondary);
     text-align: center;
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
@@ -8,7 +15,7 @@ body {
 
 .navbar {
     width: 100%;
-    background-color: #CCB3DB;
+    background-color: var(--coloraccent);
     overflow: auto;
 }
 
@@ -27,7 +34,7 @@ body {
 }
 
 .navbar a.active {
-    background-color: #C2DBB3;
+    background-color: var(--coloraccent2);
 }
 
 .navbar a.active:hover {

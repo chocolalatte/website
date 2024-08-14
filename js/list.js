@@ -28,23 +28,16 @@ list.addEventListener('click', event => {
 
 // AddButton
 function newElement() {
-  let li = document.createElement("li");
-  let inputValue = document.getElementById("listInput").value;
-  let t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
+  let input = document.getElementById('listInput');
+  if (input.value === '') {
     alert("Enter item name");
   } else {
-    let listItem = document.getElementById("groceryList").appendChild(li);
-    listItem.classList.add("listItem")
+    list.insertAdjacentHTML(
+      "afterbegin",
+      `<li class="listItem">${input.value}<span class="close">&#215;</span></li>`
+    );
   }
-  document.getElementById("listInput").value = "";
-
-  let span = document.createElement("SPAN");
-  let txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
+  input.value = '';
 
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function() {
