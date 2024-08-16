@@ -1,13 +1,14 @@
+// Declare variables for DOM objects
 const list = document.querySelector('ul')
+const input = document.getElementById('listInput');
 
 // Add listItem 
 function newElement() {
-  let input = document.getElementById('listInput');
-  // Check for non empty input then add new listItem
+  // Creates new list item
   if (input.value) {
     list.insertAdjacentHTML(
       "afterbegin",
-      `<li class="listItem">${input.value}<span class="close">&#215;</span></li>`
+      `<li class="">${input.value}<span class="close">&#215;</span></li>`
     );
   // Prompt user if item has no name
   } else {
@@ -19,8 +20,8 @@ function newElement() {
 
 // Click event listener
 list.addEventListener('click', event => {
-  // Toggle checkmark on listItem
-  if (String(event.target.className).includes("listItem")) {
+  // Toggle checkmark on list item
+  if (event.target.tagName === "LI") {
     event.target.classList.toggle('checked');
   }
   // Remove list item on X click
