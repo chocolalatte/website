@@ -4,20 +4,31 @@ const input = document.getElementById('listInput');
 var itemsRQ = new XMLHttpRequest();
 let checked;
 
-// Add listItem 
+
+// Add list item
+function addItem(a) {
+  let li = document.createElement("li");
+  let str = document.createTextNode(String(a));
+  li.appendChild(str);
+  li.insertAdjacentHTML(
+    "beforeend",
+    `<span class="close">&#215;</span>`
+  )
+  console.log(li.outerHTML)
+  list.prepend(li);
+}
+
+// Create new list item
 function newItem() {
-  // Creates new list item
   if (input.value) {
-    list.insertAdjacentHTML(
-      "afterbegin",
-      `<li class="">${String(input.value)}<span class="close">&#215;</span></li>`
-    );
+    addItem(input.value);
+    // Reset input
+    input.value = '';
+  
   // Prompt user if item has no name
   } else {
     alert("Enter item name");
   }
-  // Reset input
-  input.value = '';
 } 
 
 // Click event listener
@@ -39,17 +50,8 @@ itemsRQ.onreadystatechange = function() {
     if (itemsRQ.status === 200) {
       var listEnties = JSON.parse(itemsRQ.responseText);
       // Add items to list from list.json
-      listEnties.forEach(entry => {
-        console.log(entry)
-        item = list.insertAdjacentHTML(
-          "afterbegin",
-          `<li class="">${entry.name}<span class="close">&#215;</span></li>`
-        );
-        if (entry.isChecked) {
-          item.classList.toggle('checked');
-        }
-      });
-      // Log error message
+      listEnties.forEach(entry => addItem(entry.name));
+    // Log error message
     } else {alert(`XMLHttpRequest error: ${itemsRQ.status}`)}
   }
 }

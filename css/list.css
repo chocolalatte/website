@@ -83,7 +83,7 @@ input {
   font-size: 16px;
 }
 
-.addItem {
+.btnAdd {
   padding: 10px;
   width: 25%;
   background: #d9d9d9;
@@ -96,6 +96,6 @@ input {
   border-radius: 0;
 }
 
-.addItem:hover {
+.btnAdd:hover {
   background-color: #bbb;
 }
