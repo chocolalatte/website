@@ -1,13 +1,13 @@
 :root {
-    --colorprimary: white;
-    --colorsecondary: black;
-    --coloraccent: #CCB3DB;
-    --coloraccent2: #C2DBB3;
+    --colorprimary: #58A7DB;
+    --colorprimaryshade: #2E91D2;
+    --colorsecondary: #D690BA;
+    --colorsecondaryshade: #C86BA3;
 }
 
 body {
-    background-color: var(--colorprimary);
-    color: var(--colorsecondary);
+    background-color: #f4f4f4;
+    color: black;
     text-align: center;
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
@@ -15,7 +15,7 @@ body {
 
 .navbar {
     width: 100%;
-    background-color: var(--coloraccent);
+    background-color: var(--colorprimary);
     overflow: auto;
 }
 
@@ -30,13 +30,13 @@ body {
 }
 
 .navbar a:hover {
-    background-color: #B590CB;
+    background-color: var(--colorprimaryshade);
 }
 
 .navbar a.active {
-    background-color: var(--coloraccent2);
+    background-color: var(--colorsecondary);
 }
 
 .navbar a.active:hover {
-    background-color: #A6CB90;
+    background-color: var(--colorsecondaryshade);
 }

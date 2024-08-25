@@ -1,8 +1,7 @@
 // Declare variables for DOM objects
 const list = document.querySelector('ul')
 const input = document.getElementById('listInput');
-var itemsRQ = new XMLHttpRequest();
-let checked;
+const itemsXHR = new XMLHttpRequest();
 
 
 // Add list item
@@ -14,7 +13,6 @@ function addItem(a) {
     "beforeend",
     `<span class="close">&#215;</span>`
   )
-  console.log(li.outerHTML)
   list.prepend(li);
 }
 
@@ -43,18 +41,12 @@ list.addEventListener('click', event => {
   }
 });
 
-// itemsRQ for getting list items
-itemsRQ.onreadystatechange = function() {
-  if (itemsRQ.readyState === 4) {
-    // Check for errors
-    if (itemsRQ.status === 200) {
-      var listEnties = JSON.parse(itemsRQ.responseText);
-      // Add items to list from list.json
-      listEnties.forEach(entry => addItem(entry.name));
-    // Log error message
-    } else {alert(`XMLHttpRequest error: ${itemsRQ.status}`)}
-  }
+// XHR for getting list items
+itemsXHR.onload = () => {
+  var listEnties = JSON.parse(itemsXHR.responseText);
+  // Add each item to list
+  listEnties.forEach(entry => addItem(entry.name));
 }
-// Open and send itemsRQ
-itemsRQ.open('GET', '../list.json');
-itemsRQ.send();
+// Open and send itemsXHR
+itemsXHR.open('GET', '../list.json');
+itemsXHR.send();

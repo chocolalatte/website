@@ -1,3 +1,5 @@
+@import url(style.css);
+
 * {
   box-sizing: border-box;
 }
@@ -61,7 +63,7 @@ ul li.checked::before {
 }
 
 .header {
-  background-color: #C2DBB3;
+  background-color: var(--colorsecondary);
   padding: 30px 40px;
   color: #000000;
   text-align: center;
