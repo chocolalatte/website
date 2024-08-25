@@ -1,7 +1,6 @@
 // Declare variables for DOM objects
 const list = document.querySelector('ul')
 const input = document.getElementById('listInput');
-const itemsXHR = new XMLHttpRequest();
 
 
 // Add list item
@@ -29,6 +28,15 @@ function newItem() {
   }
 } 
 
+function fetchData(url) {
+  return fetch(url)
+    .then(res => res.json())
+}
+
+function generateItems(data) {
+  data.forEach(item => addItem(item.name))
+}
+
 // Click event listener
 list.addEventListener('click', event => {
   // Toggle checkmark on list item
@@ -41,12 +49,7 @@ list.addEventListener('click', event => {
   }
 });
 
-// XHR for getting list items
-itemsXHR.onload = () => {
-  var listEnties = JSON.parse(itemsXHR.responseText);
-  // Add each item to list
-  listEnties.forEach(entry => addItem(entry.name));
+window.onload = () => {
+  fetchData('../list.json')
+    .then(data => generateItems(data))
 }
-// Open and send itemsXHR
-itemsXHR.open('GET', '../list.json');
-itemsXHR.send();
