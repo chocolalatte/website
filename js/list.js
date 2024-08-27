@@ -30,11 +30,21 @@ function newItem() {
 
 function fetchData(url) {
   return fetch(url)
+    .then(checkStatus)
     .then(res => res.json())
+    .catch(error => console.log("uh oh", error))
 }
 
 function generateItems(data) {
-  data.forEach(item => addItem(item.name))
+  data.forEach(item => addItem(item.name));
+}
+
+function checkStatus(response) {
+  if (response.ok) {
+    return Promise.resolve(response);
+  } else {
+    return Promise.reject(new Error(response.statusText));
+  }
 }
 
 // Click event listener
