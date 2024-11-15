@@ -1,6 +1,0 @@
-#!/bin/bash
-
-podman stop nginx
-podman rm nginx
-
-podman run -d --name nginx -p 8080:8080 -v .:/opt/app-root/src:Z ubi9/nginx-124 nginx -g "daemon off;"
