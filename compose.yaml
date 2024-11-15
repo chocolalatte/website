@@ -2,6 +2,9 @@ services:
   database:
     build: ./back
     image: database
+	environment:
+		MARIADB_DATABASE: web_db
+		MARIADB_ROOT_PASSWORD: pass
     volumes:
       - database:/var/lib/mysql
     ports:
