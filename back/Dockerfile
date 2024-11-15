@@ -1,4 +1,2 @@
 FROM mariadb:latest
-COPY init ./init
-WORKDIR /init
-ENV MYSQL_ROOT_PASSWORD=pass
+COPY init/web_db.sql /docker-entrypoint-innitdb.d/
