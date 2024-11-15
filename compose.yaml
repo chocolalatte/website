@@ -11,7 +11,7 @@ services:
     build: ./front
     image: webserver
     ports:
-      - "8080:80"
+      - "8080:8888"
 
 volumes:
   database: {}
