@@ -1,0 +1,20 @@
+[
+    {
+        "ID": 0,
+        "name": "Blueberries",
+        "quantity": 1,
+        "isChecked": false
+    },
+    {
+        "ID": 1,
+        "name": "Strawberries",
+        "quantity": 2,
+        "isChecked": false
+    },
+    {
+        "ID": 2,
+        "name": "Kiwi",
+        "quantity": 1,
+        "isChecked": true
+    }
+]
