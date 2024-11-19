@@ -4,26 +4,27 @@ app.use(express.json())
 
 const fs = require("node:fs")
 
+let listData = JSON.parse(fs.readFileSync(`../list.json`))
 
-app.get(`/api/items`, (req, res) => {
-    fs.readFile(`../list.json`, (err, data) => {
-        const listData = JSON.parse(data)
-        res.send(listData)
-    })
+app.get(`/list/items`, (req, res) => {
+    listData = JSON.parse(fs.readFileSync(`../list.json`))
+    res.send(`Gotten data ${JSON.stringify(listData)}`)
 })
 
-app.post(`/api/items`, (req, res) => {
+app.post(`/list/items`, (req, res) => {
     const newItem = req.body
-    console.log(newItem)
+    listData.push(newItem)
+    fs.writeFileSync(`../list.json`, JSON.stringify(listData))
+    console.log(listData)
     res.send(`Item added: ${newItem.name}`)
 })
 
-app.put(`/api/items/:id`, (req, res) => {
+app.put(`/list/items/:id`, (req, res) => {
     const itemId = req.params.id
     res.send(`Item with ID ${itemId} updated`)
 })
 
-app.delete(`/api/items/:id`, (req, res) => {
+app.delete(`/list/items/:id`, (req, res) => {
     const itemId = req.params.id
     res.send(`Item with ID ${itemId} deleted`)
 })
